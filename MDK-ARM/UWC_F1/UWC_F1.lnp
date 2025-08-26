@@ -1,0 +1,26 @@
+--cpu Cortex-M3
+"uwc_f1\startup_stm32f103xb.o"
+"uwc_f1\main.o"
+"uwc_f1\gpio.o"
+"uwc_f1\dma.o"
+"uwc_f1\usart.o"
+"uwc_f1\stm32f1xx_it.o"
+"uwc_f1\stm32f1xx_hal_msp.o"
+"uwc_f1\stm32f1xx_hal_gpio_ex.o"
+"uwc_f1\stm32f1xx_hal_uart.o"
+"uwc_f1\stm32f1xx_hal.o"
+"uwc_f1\stm32f1xx_hal_rcc.o"
+"uwc_f1\stm32f1xx_hal_rcc_ex.o"
+"uwc_f1\stm32f1xx_hal_gpio.o"
+"uwc_f1\stm32f1xx_hal_dma.o"
+"uwc_f1\stm32f1xx_hal_cortex.o"
+"uwc_f1\stm32f1xx_hal_pwr.o"
+"uwc_f1\stm32f1xx_hal_flash.o"
+"uwc_f1\stm32f1xx_hal_flash_ex.o"
+"uwc_f1\stm32f1xx_hal_exti.o"
+"uwc_f1\system_stm32f1xx.o"
+"uwc_f1\uwc.o"
+--library_type=microlib --strict --scatter "UWC_F1\UWC_F1.sct"
+--summary_stderr --info summarysizes --map --load_addr_map_info --xref --callgraph --symbols
+--info sizes --info totals --info unused --info veneers
+--list "UWC_F1.map" -o UWC_F1\UWC_F1.axf
