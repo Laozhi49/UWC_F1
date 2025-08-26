@@ -31,7 +31,7 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x67B30502)
 I (../Core/Inc/dma.h)(0x68AD082A)
 I (../Core/Inc/usart.h)(0x68AD082A)
 I (../Core/Inc/gpio.h)(0x68AD082A)
-I (..\UWC_BSP\uwc.h)(0x68AD813A)
+I (..\UWC_BSP\uwc.h)(0x68AD9F23)
 I (D:\Keil5\ARM\ARM_Compiler5.06\include\stdbool.h)(0x5E8E3CC2)
 I (D:\Keil5\ARM\ARM_Compiler5.06\include\string.h)(0x5E8E3CC2)
 F (../Core/Src/gpio.c)(0x68AD0829)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\UWC_BSP-I.\RTE\_UWC_F1-ID:\Keil5\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o uwc_f1\gpio.o --omf_browse uwc_f1\gpio.crf --depend uwc_f1\gpio.d)
@@ -511,8 +511,8 @@ I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash.h)(0x67B30502)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_flash_ex.h)(0x67B30502)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr.h)(0x67B30502)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h)(0x67B30502)
-F (..\UWC_BSP\uwc.c)(0x68AD83A6)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\UWC_BSP-I.\RTE\_UWC_F1-ID:\Keil5\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o uwc_f1\uwc.o --omf_browse uwc_f1\uwc.crf --depend uwc_f1\uwc.d)
-I (..\UWC_BSP\uwc.h)(0x68AD813A)
+F (..\UWC_BSP\uwc.c)(0x68ADA114)(--c99 -c --cpu Cortex-M3 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc -I ../Drivers/STM32F1xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F1xx/Include -I ../Drivers/CMSIS/Include -I ..\UWC_BSP-I.\RTE\_UWC_F1-ID:\Keil5\Packs\ARM\CMSIS\5.9.0\CMSIS\Core\Include-ID:\Keil5\Packs\Keil\STM32F1xx_DFP\2.4.1\Device\Include-D__UVISION_VERSION="539" -D_RTE_ -DSTM32F10X_MD -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F103xB-o uwc_f1\uwc.o --omf_browse uwc_f1\uwc.crf --depend uwc_f1\uwc.d)
+I (..\UWC_BSP\uwc.h)(0x68AD9F23)
 I (../Core/Inc/main.h)(0x68AD082B)
 I (../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h)(0x67B30502)
 I (../Core/Inc/stm32f1xx_hal_conf.h)(0x68AD082B)

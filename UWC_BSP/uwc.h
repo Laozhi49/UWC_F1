@@ -7,6 +7,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+#define UWC_UART 				&huart1
+
 #define STATUS_HEADER 	0
 #define STATUS_DATA_03	0x03
 #define STATUS_DATA_06	0x06

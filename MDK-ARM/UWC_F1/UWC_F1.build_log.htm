@@ -27,7 +27,46 @@ Project File Date:  08/26/2025
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 7 (build 960)', folder: 'D:\Keil5\ARM\ARM_Compiler5.06\Bin'
 Build target 'UWC_F1'
-"UWC_F1\UWC_F1.axf" - 0 Error(s), 0 Warning(s).
+compiling uwc.c...
+..\UWC_BSP\uwc.h(122): warning:  #1295-D: Deprecated declaration UWC_Config - give arg types
+  void UWC_Config();
+..\UWC_BSP\uwc.h(124): warning:  #1295-D: Deprecated declaration UWC_Test - give arg types
+  void UWC_Test();
+..\UWC_BSP\uwc.h(126): warning:  #1295-D: Deprecated declaration uwc_start_receive_data - give arg types
+  void uwc_start_receive_data();
+..\UWC_BSP\uwc.h(128): warning:  #1295-D: Deprecated declaration receive_callback - give arg types
+  void receive_callback();
+..\UWC_BSP\uwc.h(130): warning:  #1295-D: Deprecated declaration DataProcess_03 - give arg types
+  void DataProcess_03();
+..\UWC_BSP\uwc.h(131): warning:  #1295-D: Deprecated declaration DataProcess_06 - give arg types
+  void DataProcess_06();
+..\UWC_BSP\uwc.h(132): warning:  #1295-D: Deprecated declaration DataProcess - give arg types
+  void DataProcess();
+..\UWC_BSP\uwc.h(133): warning:  #1295-D: Deprecated declaration RecvData_Process - give arg types
+  void RecvData_Process();
+..\UWC_BSP\uwc.h(139): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\UWC_BSP\uwc.c(151): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(154): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(157): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(160): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(163): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(166): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(169): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c(172): warning:  #111-D: statement is unreachable
+  			break;
+..\UWC_BSP\uwc.c: 17 warnings, 0 errors
+linking...
+Program Size: Code=6092 RO-data=312 RW-data=56 ZI-data=1328  
+FromELF: creating hex file...
+"UWC_F1\UWC_F1.axf" - 0 Error(s), 17 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -51,7 +90,7 @@ Package Vendor: Keil
 
    * Component: ARM::CMSIS:CORE@5.6.0
       Include file:  CMSIS/Core/Include/tz_context.h
-Build Time Elapsed:  00:00:00
+Build Time Elapsed:  00:00:03
 </pre>
 </body>
 </html>

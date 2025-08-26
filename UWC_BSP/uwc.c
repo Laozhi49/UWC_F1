@@ -1,30 +1,31 @@
 #include "uwc.h"
 #include <stdint.h>
 
-HostReadData_t 		HostReadData;
-SlaveReadData_t 	SlaveReadData;
-HostWriteData_t		HostWriteData;
-SlaveWriteData_t	SlaveWriteData;
+HostReadData_t 		HostReadData;		// 主机读数据结构体
+SlaveReadData_t 	SlaveReadData;	// 从机读数据结构体
+HostWriteData_t		HostWriteData;	// 主机写数据结构体
+SlaveWriteData_t	SlaveWriteData;	// 从机写数据结构体
 
-SendData_t				SendData;
-RecvData_t				RecvData;
+SendData_t				SendData;			// 水下通信发送数据结构体
+RecvData_t				RecvData;			// 水下通信接收数据结构体
 
-UWC_Data_t				UWC_Data;
+UWC_Data_t				UWC_Data;			// 水下通信结构体
 
-uint16_t 	crc16_value;
-uint8_t 	rx_data;
-uint8_t		rx_buff[64];
-uint8_t		rx_index = 0;
-uint8_t		start_index;
-uint8_t		RX_STATUS;
+uint16_t 					crc16_value;	// CRC16校验
+uint8_t 					rx_data;			// 串口接收字节数据
+uint8_t						rx_buff[64];	// 接收缓存区
+uint8_t						rx_index = 0;	// 接收缓存区索引
+uint8_t						start_index;	// 帧开始索引
+uint8_t						RX_STATUS;		// 串口接收状态
 
+uint8_t 					tx_data[7];		// 水下发送数据
+uint8_t 					tx_buff[13];	// 串口发送缓存区
 
-uint8_t tx_data[7];
-uint8_t tx_buff[13];
+// debug测试
+uint8_t 					send_flag = 0;// 发送标志位，不同值使用不同的功能
+uint8_t 					txdata_len;		// 水下发送数据长度
 
-uint8_t send_flag = 0;
-uint8_t txdata_len;
-
+// Modbus CRC16校验
 uint16_t Modbus_CRC16(uint8_t *buf, uint16_t len)
 {
     uint16_t crc = 0xFFFF;
@@ -43,7 +44,7 @@ uint16_t Modbus_CRC16(uint8_t *buf, uint16_t len)
     return crc; // 返回值: 高字节在高位, 低字节在低位
 }
 
-
+// UWC初始化配置
 void UWC_Config()
 {
 	RX_STATUS = STATUS_HEADER;
@@ -107,9 +108,10 @@ void UWC_Test()
 
 void uwc_start_receive_data()
 {
-	HAL_UART_Receive_IT(&huart1,(uint8_t*)&rx_data,1);
+	HAL_UART_Receive_IT(UWC_UART, (uint8_t*)&rx_data, 1);
 }
 
+// 串口回调函数
 void receive_callback()
 {
 	rx_buff[rx_index++] = rx_data;
@@ -235,7 +237,7 @@ void DataProcess()
 		
 		RX_STATUS = STATUS_HEADER;
 		rx_index = 0;
-		memset(rx_buff,0,sizeof(rx_buff));
+		memset(rx_buff, 0, sizeof(rx_buff));
 	}
 }
 
@@ -297,7 +299,7 @@ void UWC_Send(uint8_t ip_addr, uint8_t code, uint8_t buff_len, uint8_t* data)
 	memcpy((uint8_t*)tx_buff, (uint8_t*)&SendData,SendData. frame_len-1);
 	tx_buff[SendData.frame_len-1] = SendData.crc_8;
 	
-	HAL_UART_Transmit(&huart1, (uint8_t*)tx_buff, SendData.frame_len, HAL_MAX_DELAY);
+	HAL_UART_Transmit(UWC_UART, (uint8_t*)tx_buff, SendData.frame_len, HAL_MAX_DELAY);
 }
 
 // 主机发送（读）函数
@@ -309,7 +311,7 @@ void UWC_Send_Read(uint8_t ip_addr, uint16_t reg_addr, uint16_t reg_cnt)
 	HostReadData.reg_cnt	= ((reg_cnt>>8)&0x00ff)|((reg_cnt<<8)&0xff00);
 	HostReadData.crc_16		= Modbus_CRC16((uint8_t*)&HostReadData,sizeof(HostReadData)-2);
 	
-	HAL_UART_Transmit(&huart1, (uint8_t*)&HostReadData, sizeof(HostReadData), HAL_MAX_DELAY);
+	HAL_UART_Transmit(UWC_UART, (uint8_t*)&HostReadData, sizeof(HostReadData), HAL_MAX_DELAY);
 }
 
 // 主机发送（写）函数
@@ -321,7 +323,7 @@ void UWC_Send_Write(uint8_t ip_addr, uint16_t reg_addr, uint16_t data)
 	HostWriteData.data			= ((data>>8)&0x00ff)|((data<<8)&0xff00);
 	HostWriteData.crc_16		= Modbus_CRC16((uint8_t*)&HostWriteData,sizeof(HostWriteData)-2);
 	
-	HAL_UART_Transmit(&huart1, (uint8_t*)&HostWriteData, sizeof(HostWriteData), HAL_MAX_DELAY);
+	HAL_UART_Transmit(UWC_UART, (uint8_t*)&HostWriteData, sizeof(HostWriteData), HAL_MAX_DELAY);
 }
 
 
